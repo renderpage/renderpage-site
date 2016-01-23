@@ -1,0 +1,96 @@
+body {
+  background: #dfdfdf;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+
+a {
+  color: #337abd;
+}
+
+a:hover {
+  color: #ed1c24;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.wrapper {
+  background: #fff;
+  box-shadow: 0 0 8px #888;
+  margin: 24px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    margin: 0;
+  }
+}
+
+.header {
+  background: #121212;
+  overflow: hidden;
+  padding: 24px;
+
+}
+
+.logo > img {
+  width: 120px;
+}
+
+.navbar {
+  background: #2f2f2f;
+}
+
+.navbar > ul {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.navbar > ul > li {
+  float: left;
+}
+
+.navbar > ul > li > a {
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  padding: 5px 16px;
+}
+
+.navbar > ul > li > a:hover {
+  background: #464646;
+}
+
+.navbar > ul > li.active > a,
+.navbar > ul > li.active > a:hover {
+  background: #dfdfdf;
+  color: #000;
+  text-decoration: none;
+}
+
+.workarea {
+  min-height: 240px;
+  padding: 16px;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  color: #767676;
+  margin: 16px;
+  padding: 16px 8px;
+}
+
+.footer > .copy {
+  float: left;
+}
+
+.footer > .powered {
+  float: right;
+}
