@@ -1,5 +1,5 @@
 <?php
-define('RENDERPAGE_DEBUG', true);
+//define('RENDERPAGE_DEBUG', true);
 
 require '../libs/RenderPage.php';
 

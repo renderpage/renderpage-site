@@ -7,17 +7,32 @@ use app\models\Navbar;
 class DefaultController extends Controller
 {
     /**
+     * Navbar (model) instance
+     *
+     * @var object
+     */
+    public $navbar;
+
+    /**
+     * Prepare controller.
+     */
+    public function prepare()
+    {
+        $this->navbar = new Navbar;
+    }
+
+    /**
      * Index.
      *
      * @return mixed
      */
     public function actionIndex()
     {
-        $navbar = new Navbar;
-        $navbar->activeItem = 'index';
-        $this->view->setVar('navbar', $navbar->items);
+        $this->navbar->activeItem = 'index';
 
         $this->view->setVar('title', 'RenderPage');
+        $this->view->setVar('navbar', $this->navbar->items);
+
         return $this->view->render('index');
     }
 
@@ -28,11 +43,11 @@ class DefaultController extends Controller
      */
     public function actionContact()
     {
-        $navbar = new Navbar;
-        $navbar->activeItem = 'contact';
-        $this->view->setVar('navbar', $navbar->items);
+        $this->navbar->activeItem = 'contact';
 
         $this->view->setVar('title', 'Contact RenderPage');
+        $this->view->setVar('navbar', $this->navbar->items);
+
         return $this->view->render('contact');
     }
 
@@ -43,11 +58,11 @@ class DefaultController extends Controller
      */
     public function actionDownload()
     {
-        $navbar = new Navbar;
-        $navbar->activeItem = 'download';
-        $this->view->setVar('navbar', $navbar->items);
+        $this->navbar->activeItem = 'download';
 
         $this->view->setVar('title', 'RenderPage Downloads');
+        $this->view->setVar('navbar', $this->navbar->items);
+
         return $this->view->render('downloads');
     }
 }

@@ -16,15 +16,12 @@ class DocController extends Controller
     {
         $navbar = new Navbar;
         $navbar->activeItem = 'doc';
-        $this->view->setVar('navbar', $navbar->items);
 
         $doc = new Doc;
 
-        $contents = $doc->contents;
-
         $this->view->setVar('title', 'RenderPage Documentation');
-        $this->view->setVar('activeMenuItem', 'doc');
-        $this->view->setVar('contents', $contents);
+        $this->view->setVar('navbar', $navbar->items);
+        $this->view->setVar('contents', $doc->contents);
 
         return $this->view->render('doc/index');
     }
