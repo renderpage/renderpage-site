@@ -1,15 +1,15 @@
-<h1>Downloads</h1>
+<h1>{"download.h1"}</h1>
 <table>
   <tr>
-    <td>Framework</td>
+    <td>{"download.framework"}</td>
     <td>
-      <a class="btn btn-primary" href="https://github.com/renderpage/renderpage-framework/archive/master.zip">Download ZIP</a>
+      <a class="btn btn-primary" href="https://github.com/renderpage/renderpage-framework/archive/master.zip">{"download.download-zip"}</a>
     </td>
   </tr>
   <tr>
-    <td>Vector Logo</td>
+    <td>{"download.vector-logo"}</td>
     <td>
-      <a class="btn btn-primary" href="/static/vector/renderpage-logo.ai">AI (Adobe Illustrator) format</a>
+      <a class="btn btn-primary" href="http://renderpage.org/static/vector/renderpage-logo.ai">AI (Adobe Illustrator) format</a>
     </td>
   </tr>
 </table>

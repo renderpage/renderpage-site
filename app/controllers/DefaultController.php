@@ -2,24 +2,13 @@
 namespace app\controllers;
 
 use renderpage\libs\Controller;
-use app\models\Navbar;
 
 class DefaultController extends Controller
 {
     /**
-     * Navbar (model) instance
-     *
-     * @var object
+     * SiteController trait
      */
-    public $navbar;
-
-    /**
-     * Prepare controller.
-     */
-    public function prepare()
-    {
-        $this->navbar = new Navbar;
-    }
+    use \app\traits\SiteController;
 
     /**
      * Index.
@@ -30,7 +19,7 @@ class DefaultController extends Controller
     {
         $this->navbar->activeItem = 'index';
 
-        $this->view->setVar('title', 'RenderPage');
+        $this->view->setVar('title', $this->language->_('index', 'title'));
         $this->view->setVar('navbar', $this->navbar->items);
 
         return $this->view->render('index');
@@ -45,7 +34,7 @@ class DefaultController extends Controller
     {
         $this->navbar->activeItem = 'contact';
 
-        $this->view->setVar('title', 'Contact RenderPage');
+        $this->view->setVar('title', $this->language->_('contact', 'title'));
         $this->view->setVar('navbar', $this->navbar->items);
 
         return $this->view->render('contact');
@@ -60,7 +49,7 @@ class DefaultController extends Controller
     {
         $this->navbar->activeItem = 'download';
 
-        $this->view->setVar('title', 'RenderPage Downloads');
+        $this->view->setVar('title', $this->language->_('download', 'title'));
         $this->view->setVar('navbar', $this->navbar->items);
 
         return $this->view->render('downloads');

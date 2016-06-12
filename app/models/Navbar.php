@@ -19,10 +19,10 @@ class Navbar extends Model
      */
     public function getItems()
     {
-        $items['index'] = ['url' => '/', 'text' => 'Home'];
-        $items['download'] = ['url' => '/download', 'text' => 'Downloads'];
-        $items['doc'] = ['url' => '/doc', 'text' => 'Documentation'];
-        $items['contact'] = ['url' => '/contact', 'text' => 'Contact'];
+        $items['index'] = ['url' => '/', 'text' => $this->language->_('navbar', 'index')];
+        $items['download'] = ['url' => '/download', 'text' => $this->language->_('navbar', 'downloads')];
+        $items['doc'] = ['url' => '/doc', 'text' => $this->language->_('navbar', 'doc')];
+        $items['contact'] = ['url' => '/contact', 'text' => $this->language->_('navbar', 'contact')];
 
         if ($this->activeItem != '') {
             $items[$this->activeItem]['active'] = true;

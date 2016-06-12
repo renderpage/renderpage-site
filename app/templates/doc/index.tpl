@@ -1,2 +1,2 @@
-<h1>Documentation</h1>
-<p>Coming soon!</p>
+<h1>{"doc.h1"}</h1>
+<p>{"doc.coming-soon"}</p>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <string name="title">RenderPage</string>
+  <string name="h1">RenderPage: PHP фреймворк</string>
+  <string name="is-open-source">RenderPage &#x2014; это PHP фреймворк с открытым исходным кодом.</string>
+  <string name="github-project">Проект на GitHub</string>
+</strings>

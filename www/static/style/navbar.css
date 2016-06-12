@@ -1,0 +1,100 @@
+.navbar {
+  background: #2f2f2f;
+  overflow: hidden;
+}
+
+.navbar > .navbar-title,
+.navbar > .navbar-title:hover {
+  color: #777;
+  float: right;
+  font-size: 18px;
+  font-style: italic;   
+  line-height: 48px;
+  margin-right: 16px;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #000;
+  text-transform: uppercase;
+}
+
+.navbar > button {
+  background-color: #2f2f2f;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  margin: 8px 16px;
+  padding: 4px 8px;
+}
+
+.navbar > button.active{
+  background-color: #464646;
+}
+
+.navbar > button > span {
+  border-top: 2px solid #fff;
+  margin: 4px 0;
+  display: block;
+  width: 18px;
+}
+
+.navbar > ul {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.navbar > ul > li > a {
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  padding: 5px 16px;
+}
+
+.navbar > ul > li.active > a,
+.navbar > ul > li.active > a:hover {
+  background: #dfdfdf;
+  color: #000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 512px) {
+  .navbar > button {
+    display: block;
+  }
+
+  .navbar > ul {
+    background: rgba(50, 50, 50, 0.9);
+    box-shadow: 0 2px 4px 0 rgba(50, 50, 50, 0.75);
+    display: none;
+    position: absolute;
+    width: 100%;
+  }
+
+  .navbar > ul.mobile-block {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 512px) {
+  .navbar > .navbar-title {
+    display: none;
+  }
+
+  .navbar > button {
+    display: none;
+  }
+
+  .navbar > ul {
+    display: block;
+  }
+
+  .navbar > ul > li {
+    float: left;
+  }
+
+  .navbar > ul > li > a:hover {
+    background: #464646;
+  }
+}

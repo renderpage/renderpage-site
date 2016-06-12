@@ -1,2 +1,8 @@
 # Compiled templates
 /app/compile/tpl*.php
+
+# Compiled XML
+/app/compile/xml*.php
+
+# Config files
+/app/conf/*.php
