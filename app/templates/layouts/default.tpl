@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo $this->language->code; ?>">
+<html lang="{$lang}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
       <ul class="languages">
         <li>Language (Язык):</li>
         {foreach $languages as $item}
-          <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</li>
+          <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
         {/foreach}
       </ul>
     </header>
@@ -38,6 +38,13 @@
         {/foreach}
       </ul>
     </nav>
+    {if $breadcrumb}
+      <ol class="breadcrumb">
+        {foreach $breadcrumb as $item}
+          <li><a href="{$item.url}">{$item.text}</a></li>
+        {/foreach}
+      </ol>
+    {/if}
     <div class="workarea">
       {workarea}
     </div>

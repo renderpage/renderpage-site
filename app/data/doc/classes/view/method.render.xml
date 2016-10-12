@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<method>
+  <name>render</name>
+  <purpose>Возвращает вывод шаблона</purpose>
+  <methodsynopsis>
+    <return>mixed</return>
+    <name>render</name>
+    <param>
+      <type>string</type>
+      <name>template</name>
+    </param>
+    <param>
+      <type>string</type>
+      <name>layout</name>
+      <initializer>'default'</initializer>
+    </param>
+  </methodsynopsis>
+  <description>
+    Функция возвращает вывод шаблона. В качестве первого аргумента следует указать путь к шаблону.
+    В качестве второго необязательного аргумента, вы можете передать имя шаблона макета (по умолчанию: default).
+  </description>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ <refsect1 role="parameters">
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term><parameter>array</parameter></term>
+     <listitem>
+      <para>
+       Входной массив.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>sort_flags</parameter></term>
+     <listitem>
+      <para>
+       Вы можете изменить поведение сортировки, используя
+       дополнительный параметр <parameter>sort_flags</parameter>,
+       подробнее см. <function>sort</function>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 role="returnvalues">
+  <para>
+  </para>
+ </refsect1>
+ <examples>
+   <example>
+    <title>Пример использования <function>render</function></title>
+    <programlisting role="php">
+<![CDATA[
+<?php
+namespace app\controllers;
+
+use renderpage\libs\Controller;
+
+class DefaultController extends Controller
+{
+    /**
+     * Index.
+     *
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        return $this->view->render('index');
+    }
+}
+?>
+]]>
+    </programlisting>
+    <screen>
+<![CDATA[
+c = apple
+b = banana
+d = lemon
+a = orange
+]]>
+    </screen>
+    <para>
+     Названия фруктов были отсортированы в алфавитном порядке и
+     ключи, ассоциированные с элементами, были сохранены.
+    </para>
+   </example>
+ </examples>
+ 
+ 
+ 
+ 
+ <refsect1 role="seealso">
+  <para>
+   <simplelist>
+    <member><function>arsort</function></member>
+    <member></member>
+   </simplelist>
+  </para>
+ </refsect1>
+</method>

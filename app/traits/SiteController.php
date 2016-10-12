@@ -20,7 +20,7 @@ trait SiteController {
         $this->navbar = new Navbar;
 
         // Styles
-        $this->view->addCss('common.css');
+        $this->view->addCss('renderpage.css');
         $this->view->addCss('default.css');
         $this->view->addCss('navbar.css');
 
@@ -41,6 +41,7 @@ trait SiteController {
             ],
         ];
 
+        $this->view->setVar('lang', $this->language->code);
         $this->view->setVar('languages', $languages);
         $this->view->setVar('year', date('Y'));
         

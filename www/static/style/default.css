@@ -37,6 +37,27 @@ body {
   text-decoration: none;
 }
 
+.breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 0 16px;
+}
+
+.breadcrumb > li {
+  display: inline-block;
+}
+
+.breadcrumb > li + li:before {
+  color: #767676;
+  content: "/\00a0";
+  padding: 0 4px;
+}
+
+/* Temp */
+.breadcrumb + .workarea {
+  padding-top: 0;
+}
+
 .workarea {
   min-height: 240px;
   padding: 16px;
