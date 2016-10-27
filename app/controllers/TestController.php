@@ -1,16 +1,10 @@
 <?php
 namespace app\controllers;
 
-use renderpage\libs\Controller;
 use app\models\Doc;
 
-class TestController extends Controller
+class TestController extends CommonController
 {
-    /**
-     * SiteController trait
-     */
-    use \app\traits\SiteController;
-
     /**
      * Index.
      *

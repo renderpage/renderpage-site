@@ -1,10 +1,11 @@
 <?php
-namespace app\traits;
+namespace app\controllers;
 
+use renderpage\libs\Controller;
 use app\models\AccessLog;
 use app\models\Navbar;
 
-trait SiteController {
+class CommonController extends Controller {
     /**
      * Navbar (model) instance
      *
@@ -13,9 +14,9 @@ trait SiteController {
     public $navbar;
 
     /**
-     * Prepare controller.
+     * Before action.
      */
-    public function prepare()
+    public function before()
     {
         $this->navbar = new Navbar;
 

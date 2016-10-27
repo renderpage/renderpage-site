@@ -1,4 +1,4 @@
- body {
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   margin: 0;
@@ -31,6 +31,14 @@ h2 {
 }
 /* /Headings */
 
+/* Forms */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+/* /Forms */
+
 /* Alignment classes */
 .text-center {
   text-align: center;
@@ -43,7 +51,7 @@ h2 {
 
 /* Buttons */
 .btn {
-  border-radius: 4px;
+  border-radius: 2px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -102,11 +110,26 @@ h2 {
 .btn-big {
   font-size: 16px;
 }
+
+.btn:disabled {
+  background: #eee;
+  border-color: #ccc;
+  color: #ccc;
+  cursor: default;
+}
 /* /Buttons */
 
 /* Form controls */
 label {
   color: #666;
+}
+
+input {
+  transition: all 0.1s linear;
+}
+
+input:focus {
+  transition: all 0.1s linear;
 }
 
 input[type=text],
@@ -115,7 +138,7 @@ input[type=email],
 input[type=date],
 select {
   border: 1px solid #d5d5d5;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
   box-sizing: border-box;
   outline: none;
@@ -129,6 +152,18 @@ input[type=date]:focus,
 select:focus {
   border-color: #66afe9;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 0 4px rgba(102,175,233,0.9);
+}
+
+input[type=radio].invalid + label:before,
+input.invalid { /* input:invalid */
+  border-color: #ff9595;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 0 4px rgba(255,149,149,0.2);
+}
+
+input[type=radio].invalid:focus + label:before,
+input.invalid:focus { /* input:invalid:focus */
+  border-color: #ff9595;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 0 8px rgba(255,149,149,0.9);
 }
 
 input[type=radio] {

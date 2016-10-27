@@ -1,15 +1,8 @@
 <?php
 namespace app\controllers;
 
-use renderpage\libs\Controller;
-
-class DefaultController extends Controller
+class DefaultController extends CommonController
 {
-    /**
-     * SiteController trait
-     */
-    use \app\traits\SiteController;
-
     /**
      * Index.
      *

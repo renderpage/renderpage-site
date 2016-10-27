@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="theme-color" content="#121212">
     <link rel="icon" href="/favicon.ico">
     <title>{$title}</title>
     {foreach $cssFiles as $cssFile}
@@ -45,9 +46,9 @@
         {/foreach}
       </ol>
     {/if}
-    <div class="workarea">
+    <main class="workarea">
       {workarea}
-    </div>
+    </main>
     <footer class="footer">
       <div class="copy">&copy; 2015&ndash;{$year} RenderPage.org</div>
       <div class="powered">Powered by RenderPage {#VERSION}</div>

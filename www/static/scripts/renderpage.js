@@ -25,7 +25,7 @@ RenderPage.init.prototype = {
   elements: [],
 
   // Get element by index
-  get: function (i) {
+  get: function (i = 0) {
     return this.elements[i];
   },
 
@@ -90,7 +90,7 @@ RenderPage.init.prototype = {
     }
   },
 
-  // Returns a Boolean value, indicating whether an element has the specified class name
+  // Returns a boolean value, indicating whether an element has the specified class name
   hasClass: function (className) {
     for (var i = 0; i < this.elements.length; ++i) {
       if (this.elements[i].classList.contains(className)) {
@@ -101,11 +101,46 @@ RenderPage.init.prototype = {
     return false;
   },
 
-  // Events: onclick
-  click: function (handler) {
+  /*!
+   * Events
+   */
+
+  on: function (event, handler) {
     for (var i = 0; i < this.elements.length; ++i) {
-      this.elements[i].onclick = handler;
+      /*this.elements[i].addEventListener(event, function (e) {
+        if (handler(e) === false) {
+          e.preventDefault();
+        }
+      }, false);*/
+      this.elements[i].addEventListener(event, handler, false);
     }
+  },
+
+  // Event: onclick
+  click: function (handler) {
+    this.on("click", handler);
+  },
+
+  // Event: onsubmit
+  submit: function (handler) {
+    this.on("submit", handler);
+  },
+
+  // Event: oninvalid
+  invalid: function (handler) {
+    for (var i = 0; i < this.elements.length; ++i) {
+      this.elements[i].oninvalid = handler;
+    }
+  },
+
+  // Event: onkeydown
+  keydown: function (handler) {
+    this.on("keydown", handler);
+  },
+
+  // Event: onkeyup
+  keyup: function (handler) {
+    this.on("keyup", handler);
   }
 };
 
@@ -118,12 +153,37 @@ RenderPage.ready = function (handler) {
 RenderPage.getJSON = function (url, callback) {
   var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function() {
-    if (request.readyState === 4) {
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) { // Complete
       callback(JSON.parse(request.responseText));
     }
   }
 
   request.open("GET", url, true);
+  request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   request.send();
 };
+
+// POST request
+RenderPage.post = function (url, data, callback, error = function () { }) {
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) { // Complete
+      if (request.status === 200) {
+        try {
+          callback(JSON.parse(request.responseText));
+        } catch (e) {
+          error(e);
+        }
+      } else {
+        error(`${request.status} ${request.statusText}`);
+      }
+    }
+  }
+
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+  request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  request.send(data);
+}
