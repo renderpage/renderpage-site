@@ -2,8 +2,7 @@
 namespace app\controllers;
 
 use renderpage\libs\Controller;
-use app\models\AccessLog;
-use app\models\Navbar;
+use app\models\{AccessLog, Navbar};
 
 class CommonController extends Controller {
     /**

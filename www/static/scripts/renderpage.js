@@ -168,6 +168,7 @@ RenderPage.getJSON = function (url, callback) {
 RenderPage.post = function (url, data, callback, error = function () { }) {
   var request = new XMLHttpRequest();
 
+  //request.onerror = error;
   request.onreadystatechange = function () {
     if (request.readyState === 4) { // Complete
       if (request.status === 200) {
