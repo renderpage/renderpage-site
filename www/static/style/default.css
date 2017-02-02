@@ -4,7 +4,13 @@ html {
 }
 
 body {
-  margin-bottom: 61px; /* Margin bottom by footer height */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .header {
@@ -15,26 +21,6 @@ body {
 
 .header > .logo > img {
   height: 70px;
-}
-
-.header > .languages {
-  color: #777;
-  float: right;
-  list-style: none;
-}
-
-.header > .languages li {
-  float: left;
-  margin: 0 4px;
-}
-
-.header > .languages li > a {
-  color: #fff;
-}
-
-.header > .languages li > a.active {
-  color: #666;
-  text-decoration: none;
 }
 
 .breadcrumb {
@@ -66,16 +52,33 @@ body {
 .footer {
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
-  bottom: 0;
   color: #767676;
-  position: absolute;
-  height: 60px; /* Fixed height of the footer */
-  width: 100%;
 }
 
-.footer > .copy,
-.footer > .powered {
-  padding: 0 22px;
+.footer > .languages > ul {
+  color: #767676;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer > .languages li {
+  float: left;
+  margin: 0 4px;
+}
+
+.footer > .languages li:first-child {
+  margin: 0;
+}
+
+.footer > .languages li > a {
+  color: #767676;
+}
+
+.footer > .languages li > a.active {
+  color: #ccc;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 512px) {
@@ -83,27 +86,41 @@ body {
     display: none;
   }
 
-  .footer > .copy,
-  .footer > .powered {
-    line-height: 16px;
+  .footer {
+    padding: 16px;
+    text-align: center;
   }
 
-  .footer > .copy {
-    margin-top: 14px;
+  .footer > .languages li,
+  .footer > .copy,
+  .footer > .powered {
+    line-height: 22px;
+  }
+
+  .footer > .languages ul {
+    display: inline-block;
   }
 }
 
 @media screen and (min-width: 512px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .footer > .languages,
   .footer > .copy,
   .footer > .powered {
-    line-height: 60px;
+    padding: 22px;
   }
 
   .footer > .copy {
-    float: left;
+    text-align: center;
   }
 
   .footer > .powered {
-    float: right;
+    text-align: right;
   }
 }
