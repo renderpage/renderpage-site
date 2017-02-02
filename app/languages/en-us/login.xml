@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <string name="title">RenderPage Login</string>
+  <string name="form-login-heading">Please sign in</string>
+  <string name="label-email">Email address:</string>
+  <string name="label-password">Password:</string>
+  <string name="reset-password">Forgot your password?</string>
+  <string name="submit">Log in</string>
+  <string name="divider">Not registered?</string>
+  <string name="signup">Sign up</string>
+  <string name="error-email-empty">Enter your e-mail address.</string>
+  <string name="error-email-invalid">E-mail is invalid.</string>
+  <string name="error-user-not-found">That user doesn't exist.</string>
+  <string name="error-password-empty">Enter your password.</string>
+  <string name="error-password-incorrect">Password is incorrect.</string>
+</strings>

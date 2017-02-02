@@ -23,6 +23,25 @@ main {
   height: 70px;
 }
 
+.header > .auth-panel {
+  float: right;
+}
+
+.header > .auth-panel .btn {
+  border: 1px solid #2f2f2f;
+  border-radius: 6px;
+  color: #999;
+  margin-left: 8px;
+}
+
+.header > .auth-panel .btn.btn-login {
+  background: #2f2f2f;
+}
+
+.header > .auth-panel .btn.btn-login:hover {
+  background: #464646;
+}
+
 .breadcrumb {
   list-style: none;
   margin: 0;
@@ -55,6 +74,15 @@ main {
   color: #767676;
 }
 
+.footer a {
+  color: #767676;
+}
+
+.footer a.active {
+  color: #ccc;
+  text-decoration: none;
+}
+
 .footer > .languages > ul {
   color: #767676;
   list-style: none;
@@ -70,15 +98,6 @@ main {
 
 .footer > .languages li:first-child {
   margin: 0;
-}
-
-.footer > .languages li > a {
-  color: #767676;
-}
-
-.footer > .languages li > a.active {
-  color: #ccc;
-  text-decoration: none;
 }
 
 @media screen and (max-width: 512px) {

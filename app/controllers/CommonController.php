@@ -2,7 +2,7 @@
 namespace app\controllers;
 
 use renderpage\libs\Controller;
-use app\models\{AccessLog, Navbar};
+use app\models\{AccessLog, Navbar, Auth};
 
 class CommonController extends Controller {
     /**
@@ -13,11 +13,19 @@ class CommonController extends Controller {
     public $navbar;
 
     /**
+     * Auth (model) instance
+     *
+     * @var object
+     */
+    protected $auth;
+
+    /**
      * Before action.
      */
     public function before()
     {
         $this->navbar = new Navbar;
+        $this->auth = new Auth;
 
         // Styles
         $this->view->addCss('renderpage.css');
@@ -41,12 +49,12 @@ class CommonController extends Controller {
             ],
         ];
 
+        $this->view->setVar('isAuthorized', $this->auth->isAuthorized);
         $this->view->setVar('lang', $this->language->code);
         $this->view->setVar('languages', $languages);
         $this->view->setVar('year', date('Y'));
-        
-        $accessLog = new AccessLog;
 
+        $accessLog = new AccessLog;
         $accessLog->write();
     }
 }
