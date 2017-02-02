@@ -21,6 +21,7 @@
       <a class="logo" href="/"><img src="http://renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
       <div class="auth-panel">
         {if $isAuthorized}
+          {$authUserEmail}
           <a class="btn" href="/logout">{"auth-panel.logout"}</a>
         {/if}
         {if $isAuthorized === false}

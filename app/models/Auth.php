@@ -6,6 +6,8 @@ use app\models\User;
 
 class Auth extends User
 {
+    public $user;
+
     /**
      * Is user auth.
      *
@@ -18,8 +20,10 @@ class Auth extends User
 
         $userId = $session->get('userId');
         if ($userId > 0) {            
-            $user = $this->getById($userId);
-            return true;
+            $this->user = $this->getById($userId);
+            if ($this->user) {
+                return true;
+            }
         }
 
         return false;

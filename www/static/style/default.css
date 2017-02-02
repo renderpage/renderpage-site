@@ -15,6 +15,7 @@ main {
 
 .header {
   background: #121212;
+  color: #999;
   overflow: hidden;
   padding: 24px;
 }
