@@ -19,12 +19,6 @@
   <body>
     <header class="header">
       <a class="logo" href="/"><img src="http://renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
-      <ul class="languages">
-        <li>Language (Язык):</li>
-        {foreach $languages as $item}
-          <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
-        {/foreach}
-      </ul>
     </header>
     <nav class="navbar">
       <a class="navbar-title" href="/">RenderPage</a>
@@ -50,8 +44,16 @@
       {workarea}
     </main>
     <footer class="footer">
+      <div class="languages">
+        <ul>
+          <li>Language (Язык):</li>
+          {foreach $languages as $item}
+            <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
+          {/foreach}
+        </ul>
+      </div>
       <div class="copy">&copy; 2015&ndash;{$year} RenderPage.org</div>
-      <div class="powered">Powered by RenderPage {#VERSION}</div>
+      <div class="powered">Powered by RenderPage&nbsp;{#VERSION}</div>
     </footer>
   </body>
 </html>
