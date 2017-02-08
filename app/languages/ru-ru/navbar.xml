@@ -4,4 +4,6 @@
   <string name="downloads">Скачать</string>
   <string name="doc">Документация</string>
   <string name="contact">Контакты</string>
+  <string name="login">Вход</string>
+  <string name="logout">Выход</string>
 </strings>

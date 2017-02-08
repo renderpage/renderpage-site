@@ -6,7 +6,7 @@ use app\models\User;
 
 class Auth extends User
 {
-    public $user;
+    private static $_isAuthorized = null;
 
     /**
      * Is user auth.
@@ -15,19 +15,28 @@ class Auth extends User
      */
     public function getIsAuthorized()
     {
+        if (self::$_isAuthorized !== null) {
+            return self::$_isAuthorized;
+        }
+
         // Create instance of Session class
         $session = Session::getInstance();
 
         $userId = $session->get('userId');
         if ($userId > 0) {            
-            $this->user = $this->getById($userId);
-            if ($this->user) {
-                return true;
-            }
+            $this->getById($userId);
         }
+
+        if ($this->id > 0) {
+            self::$_isAuthorized = true;
+            return true;
+        }
+
+        self::$_isAuthorized = false;
 
         return false;
     }
+
 
     /**
      * Log in.
@@ -99,6 +108,7 @@ class Auth extends User
         // Create instance of Session class
         $session = Session::getInstance();
         $session->del('userId');
+        self::$_isAuthorized = false;
         return true;
     }    
 }

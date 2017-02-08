@@ -2,6 +2,7 @@
 namespace app\models;
 
 use renderpage\libs\Model;
+use app\models\Auth;
 
 class Navbar extends Model
 {
@@ -24,8 +25,17 @@ class Navbar extends Model
         $items['doc'] = ['url' => '/doc', 'text' => $this->language->_('navbar', 'doc')];
         $items['contact'] = ['url' => '/contact', 'text' => $this->language->_('navbar', 'contact')];
 
+        $items[] = ['isSeparator' => true, 'class' => 'mobile-only'];
+
+        $auth = new Auth;
+        if ($auth->isAuthorized) {
+            $items['logout'] = ['url' => '/logout', 'text' => $this->language->_('navbar', 'logout'), 'class' => 'mobile-only'];
+        } else {
+            $items['login'] = ['url' => '/login', 'text' => $this->language->_('navbar', 'login'), 'class' => 'mobile-only'];
+        }
+
         if ($this->activeItem != '') {
-            $items[$this->activeItem]['active'] = true;
+            $items[$this->activeItem]['class'] = 'active';
         }
 
         return $items;

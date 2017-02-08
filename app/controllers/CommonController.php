@@ -49,11 +49,11 @@ class CommonController extends Controller {
             ],
         ];
 
-        
         $this->view->setVar('isAuthorized', $this->auth->isAuthorized);
-        if ($this->auth->user) {
-            $this->view->setVar('authUserEmail', $this->auth->user->email);
+        if ($this->auth->isAuthorized) {
+            $this->view->setVar('auth', ['id' => $this->auth->id, 'email' => $this->auth->email]);
         }
+
         $this->view->setVar('lang', $this->language->code);
         $this->view->setVar('languages', $languages);
         $this->view->setVar('year', date('Y'));

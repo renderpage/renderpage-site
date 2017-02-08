@@ -21,7 +21,7 @@
       <a class="logo" href="/"><img src="http://renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
       <div class="auth-panel">
         {if $isAuthorized}
-          {$authUserEmail}
+          <span>{$auth.email}</span>
           <a class="btn" href="/logout">{"auth-panel.logout"}</a>
         {/if}
         {if $isAuthorized === false}
@@ -39,7 +39,12 @@
       </button>
       <ul>
         {foreach $navbar as $item}
-          <li{if $item.active} class="active"{/if}><a href="{$item.url}">{$item.text}</a></li>
+          {if $item.isSeparator}
+            <li class="divider{if $item.class} {$item.class}{/if}"><!-- -- --></li>
+          {/if}
+          {if !$item.isSeparator}
+            <li{if $item.class} class="{$item.class}"{/if}><a href="{$item.url}">{$item.text}</a></li>
+          {/if}
         {/foreach}
       </ul>
     </nav>

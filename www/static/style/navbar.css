@@ -72,17 +72,28 @@
     width: 100%;
   }
 
-  .navbar > ul.mobile-block {
+  .navbar > ul.mobile-block,
+  .navbar .mobile-only {
     display: block;
+  }
+
+  .navbar > ul > li {
+    line-height: 32px;
+  }
+
+  .navbar li.divider {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    height: 1px;
+    margin: 4px 8px;
   }
 }
 
 @media screen and (min-width: 512px) {
-  .navbar > .navbar-title {
-    display: none;
-  }
-
-  .navbar > button {
+  .navbar > .navbar-title,
+  .navbar > button,
+  .navbar .mobile-only {
     display: none;
   }
 
