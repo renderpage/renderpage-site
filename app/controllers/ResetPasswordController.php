@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-use app\models\Auth;
+use app\models\ResetPassword;
 
 class ResetPasswordController extends CommonController
 {
@@ -12,9 +12,21 @@ class ResetPasswordController extends CommonController
      */
     public function actionIndex()
     {
-        $this->view->setVar('title', $this->language->_('reset-password', 'title'));
-        $this->view->setVar('navbar', $this->navbar->items);
+        if (!empty($_POST)) {
+            $results = (new ResetPassword)->resetPassword();
+            if ($results['success']) {
+                $this->redirect('/');
+            }
+            $errorMessages = [];
+            foreach ($results['errors'] as $error) {
+                $errorMessages[$error['inputName']] = $error['message'];
+            }
+            $this->view->setVar('errorMessages', $errorMessages);
+            $this->view->setVar('email', $_POST['email']);
+        }
 
-        return $this->view->render('reset-password');
+        $this->view->setVar('title', $this->language->_('reset-password', 'title'));
+
+        return $this->view->render('reset-password', 'auth');
     }
 }

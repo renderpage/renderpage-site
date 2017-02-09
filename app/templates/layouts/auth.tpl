@@ -11,7 +11,6 @@
     <title>{$title}</title>
     <link href="http://renderpage.org/static/style/renderpage.css" rel="stylesheet">
     <link href="http://renderpage.org/static/style/auth.css" rel="stylesheet">
-    <link href="http://renderpage.org/static/style/login.css" rel="stylesheet">
   </head>
   <body>
     <header class="header">

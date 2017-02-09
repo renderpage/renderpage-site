@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <strings>
   <string name="title">RenderPage Login</string>
-  <string name="form-login-heading">Please sign in</string>
+  <string name="heading">Please sign in</string>
   <string name="label-email">Email address:</string>
   <string name="label-password">Password:</string>
   <string name="reset-password">Forgot your password?</string>

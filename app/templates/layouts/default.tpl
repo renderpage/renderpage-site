@@ -40,7 +40,7 @@
       <ul>
         {foreach $navbar as $item}
           {if $item.isSeparator}
-            <li class="divider{if $item.class} {$item.class}{/if}"><!-- -- --></li>
+            <li class="divider{if $item.class} {$item.class}{/if}"><!-- - --></li>
           {/if}
           {if !$item.isSeparator}
             <li{if $item.class} class="{$item.class}"{/if}><a href="{$item.url}">{$item.text}</a></li>

@@ -18,6 +18,94 @@ main.workarea {
   padding: 16px;
 }
 
+.auth-form {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+  padding: 16px;
+  max-width: 320px;
+  min-width: 240px;
+  width: 320px;
+}
+
+.auth-form .auth-form-heading {
+  margin-top: 0;
+}
+
+.auth-form .forgot {
+  float: right;
+}
+
+.auth-form fieldset {
+  margin-bottom: 16px;
+}
+
+.auth-form input[type=email],
+.auth-form input[type=password] {
+  display: block;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.auth-form .error {
+  color: #ff7070;
+  margin-top: 4px;
+  line-height: 16px;
+}
+
+.auth-form .error > .exclamation-sign {
+  background: #ff7070;
+  border-radius: 16px;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+}
+
+.auth-form .btn {
+  width: 100%;
+}
+
+.divider {
+  line-height: 0;
+  margin: 32px 0 16px;
+  position: relative;
+  text-align: center;
+}
+
+.divider:after {
+  background-color: transparent;
+  border-top: 1px solid #eee;
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 1;
+}
+
+.divider h5 {
+  background-color: #fff;
+  color: #666;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0 8px 0 7px;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-form .reset-password {
+  float: right;
+}
+
 .footer {
   color: #999;
   text-align: center;

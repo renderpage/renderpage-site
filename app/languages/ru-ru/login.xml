@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <strings>
   <string name="title">RenderPage Вход</string>
-  <string name="form-login-heading">Войдите в свою учетную запись</string>
+  <string name="heading">Войдите в свою учетную запись</string>
   <string name="label-email">Электронная почта:</string>
   <string name="label-password">Пароль:</string>
   <string name="reset-password">Забыли пароль?</string>

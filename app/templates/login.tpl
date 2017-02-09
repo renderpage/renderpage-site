@@ -1,8 +1,8 @@
-<form class="form-login" action="/login" method="post">
-  <h2 class="form-login-heading">{"login.form-login-heading"}</h2>
+<form class="auth-form" action="/login" method="post">
+  <h2 class="auth-form-heading">{"login.heading"}</h2>
   <fieldset>
     <label for="inputEmail">{"login.label-email"}</label>
-    <input id="inputEmail" tabindex="1" name="email" type="email" maxlength="129" value="{$email}">
+    <input id="inputEmail" tabindex="1" name="email" type="email" maxlength="129" value="{$email}" placeholder="example@example.org">
     {if $errorMessages.email}
       <div class="error">
         <span class="exclamation-sign">!</span>
