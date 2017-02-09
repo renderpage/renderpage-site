@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\Auth;
-
 class LoginController extends CommonController {
 
     /**
@@ -12,12 +10,12 @@ class LoginController extends CommonController {
      * @return mixed
      */
     public function actionIndex() {
-        if ((new Auth)->isAuthorized) {
+        if ($this->auth->isAuthorized) {
             return $this->redirect('/');
         }
 
         if ($this->request->isPost) {
-            $results = (new Auth)->login($_POST);
+            $results = $this->auth->login();
             if ($results['success']) {
                 $this->redirect('/');
             }

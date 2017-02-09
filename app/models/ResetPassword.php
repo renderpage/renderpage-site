@@ -23,16 +23,16 @@ class ResetPassword extends User {
     private function filterInputValidateEmail() {
         if (!$email = filter_input(INPUT_POST, 'email')) {
             $this->response['errors'][] = [
-                'message' => $this->_('reset-password', 'error-email-empty'),
-                'inputName' => 'email'
+                'inputName' => 'email',
+                'message' => $this->_('reset-password', 'error-email-empty')
             ];
             $this->response;
             return false;
         }
         if (!$email = filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->response['errors'][] = [
-                'message' => $this->_('reset-password', 'error-email-invalid'),
-                'inputName' => 'email'
+                'inputName' => 'email',
+                'message' => $this->_('reset-password', 'error-email-invalid')
             ];
             $this->response;
             return false;
@@ -52,8 +52,8 @@ class ResetPassword extends User {
         $user = $this->getByEmail($email);
         if (!$user) {
             $this->response['errors'][] = [
-                'message' => $this->_('reset-password', 'error-email-not-found'),
-                'inputName' => 'email'
+                'inputName' => 'email',
+                'message' => $this->_('reset-password', 'error-email-not-found')
             ];
             return $this->response;
         }

@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\Auth;
-
 class LogoutController extends CommonController {
 
     /**
@@ -12,7 +10,7 @@ class LogoutController extends CommonController {
      * @return mixed
      */
     public function actionIndex() {
-        (new Auth)->logout();
+        $this->auth->logout();
         return $this->redirect('/login');
     }
 

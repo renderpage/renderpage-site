@@ -12,7 +12,7 @@ class SignupController extends CommonController {
      * @return mixed
      */
     public function actionIndex() {
-        if ((new Auth)->isAuthorized) {
+        if ($this->auth->isAuthorized) {
             return $this->redirect('/');
         }
 

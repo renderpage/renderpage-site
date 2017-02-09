@@ -10,6 +10,40 @@ class Auth extends User {
     private static $_isAuthorized = null;
 
     /**
+     * Response
+     * @var array
+     */
+    private $response = [
+        'success' => false,
+        'errors' => []
+    ];
+
+    /**
+     * Gets e-mail from $_POST
+     *
+     * @return string|boolean Valid e-mail or FALSE
+     */
+    private function filterInputValidateEmail() {
+        if (!$email = filter_input(INPUT_POST, 'email')) {
+            $this->response['errors'][] = [
+                'inputName' => 'email',
+                'message' => $this->_('login', 'error-email-empty')
+            ];
+            $this->response;
+            return false;
+        }
+        if (!$email = filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->response['errors'][] = [
+                'inputName' => 'email',
+                'message' => $this->_('login', 'error-email-invalid')
+            ];
+            $this->response;
+            return false;
+        }
+        return $email;
+    }
+
+    /**
      * Is user auth.
      *
      * @return boolean
@@ -40,60 +74,37 @@ class Auth extends User {
     /**
      * Log in.
      *
-     * @param array $data _POST
-     *
      * @return array
      */
-    public function login(array $data) {
-        $response = [
-            'success' => false,
-            'errors' => []
-        ];
-
-        if (!$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-            if (empty($data['email'])) {
-                $response['errors'][] = [
-                    'message' => $this->_('login', 'error-email-empty'),
-                    'inputName' => 'email'
-                ];
-            } else {
-                $response['errors'][] = [
-                    'message' => $this->_('login', 'error-email-invalid'),
-                    'inputName' => 'email'
-                ];
-            }
-            return $response;
+    public function login() {
+        if (!$email = $this->filterInputValidateEmail()) {
+            return $this->response;
         }
-
         $user = $this->getByEmail($email);
         if (!$user) {
-            $response['errors'][] = [
-                'message' => $this->_('login', 'error-user-not-found'),
-                'inputName' => 'email'
+            $this->response['errors'][] = [
+                'inputName' => 'email',
+                'message' => $this->_('login', 'error-user-not-found')
             ];
-            return $response;
+            return $this->response;
         }
-
-        if (empty($data['password'])) {
-            $response['errors'][] = [
-                'message' => $this->_('login', 'error-password-empty'),
-                'inputName' => 'password'
+        if (!$password = filter_input(INPUT_POST, 'password')) {
+            $this->response['errors'][] = [
+                'inputName' => 'password',
+                'message' => $this->_('login', 'error-password-empty')
             ];
-            return $response;
+            return $this->response;
         }
-
-        $password = md5($data['password']);
-        if ($user->password === $password) {
+        if (md5($password) === $user->password) {
             Session::getInstance()->set('userId', $user->id);
-            $response['success'] = true;
+            $this->response['success'] = true;
         } else {
-            $response['errors'][] = [
-                'message' => $this->_('login', 'error-password-incorrect'),
-                'inputName' => 'password'
+            $this->response['errors'][] = [
+                'inputName' => 'password',
+                'message' => $this->_('login', 'error-password-incorrect')
             ];
         }
-
-        return $response;
+        return $this->response;
     }
 
     /**

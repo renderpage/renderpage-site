@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\Doc;
-
 class DocController extends CommonController {
 
     /**
