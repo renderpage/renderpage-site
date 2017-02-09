@@ -1,11 +1,12 @@
 <?php
+
 namespace app\models;
 
 use renderpage\libs\Session;
 use app\models\User;
 
-class Auth extends User
-{
+class Auth extends User {
+
     private static $_isAuthorized = null;
 
     /**
@@ -13,8 +14,7 @@ class Auth extends User
      *
      * @return boolean
      */
-    public function getIsAuthorized()
-    {
+    public function getIsAuthorized() {
         if (self::$_isAuthorized !== null) {
             return self::$_isAuthorized;
         }
@@ -23,7 +23,7 @@ class Auth extends User
         $session = Session::getInstance();
 
         $userId = $session->get('userId');
-        if ($userId > 0) {            
+        if ($userId > 0) {
             $this->getById($userId);
         }
 
@@ -37,7 +37,6 @@ class Auth extends User
         return false;
     }
 
-
     /**
      * Log in.
      *
@@ -45,22 +44,21 @@ class Auth extends User
      *
      * @return array
      */
-    public function login(array $data)
-    {
+    public function login(array $data) {
         $response = [
             'success' => false,
-            'errors'  => []
+            'errors' => []
         ];
 
         if (!$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
             if (empty($data['email'])) {
                 $response['errors'][] = [
-                    'message'   => $this->_('login', 'error-email-empty'),
+                    'message' => $this->_('login', 'error-email-empty'),
                     'inputName' => 'email'
                 ];
             } else {
                 $response['errors'][] = [
-                    'message'   => $this->_('login', 'error-email-invalid'),
+                    'message' => $this->_('login', 'error-email-invalid'),
                     'inputName' => 'email'
                 ];
             }
@@ -70,7 +68,7 @@ class Auth extends User
         $user = $this->getByEmail($email);
         if (!$user) {
             $response['errors'][] = [
-                'message'   => $this->_('login', 'error-user-not-found'),
+                'message' => $this->_('login', 'error-user-not-found'),
                 'inputName' => 'email'
             ];
             return $response;
@@ -78,7 +76,7 @@ class Auth extends User
 
         if (empty($data['password'])) {
             $response['errors'][] = [
-                'message'   => $this->_('login', 'error-password-empty'),
+                'message' => $this->_('login', 'error-password-empty'),
                 'inputName' => 'password'
             ];
             return $response;
@@ -90,7 +88,7 @@ class Auth extends User
             $response['success'] = true;
         } else {
             $response['errors'][] = [
-                'message'   => $this->_('login', 'error-password-incorrect'),
+                'message' => $this->_('login', 'error-password-incorrect'),
                 'inputName' => 'password'
             ];
         }
@@ -103,12 +101,12 @@ class Auth extends User
      *
      * @return boolean
      */
-    public function logout()
-    {
+    public function logout() {
         // Create instance of Session class
         $session = Session::getInstance();
         $session->del('userId');
         self::$_isAuthorized = false;
         return true;
-    }    
+    }
+
 }

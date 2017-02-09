@@ -1,14 +1,13 @@
 <?php
+
 namespace app\models;
 
 use renderpage\libs\Model;
 
-class User extends Model
-{
+class User extends Model {
+
     public $id = -1;
-
     public $email = '';
-
     protected $password = ''; // md5
 
     /**
@@ -18,8 +17,8 @@ class User extends Model
      *
      * @return $this|false
      */
-    public function getById(int $id)
-    {
+
+    public function getById(int $id) {
         $userRow = $this->db->getRow('SELECT * FROM `user` WHERE `id` = ?', [$id]);
         if ($userRow) {
             $this->id = $id;
@@ -37,8 +36,7 @@ class User extends Model
      *
      * @return $this|false
      */
-    public function getByEmail(string $email)
-    {
+    public function getByEmail(string $email) {
         $userRow = $this->db->getRow('SELECT * FROM `user` WHERE `email` = ?', [$email]);
         if ($userRow) {
             $this->id = $userRow['id'];
@@ -48,4 +46,5 @@ class User extends Model
         }
         return false;
     }
+
 }

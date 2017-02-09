@@ -1,10 +1,16 @@
 <?php
+
 namespace app\controllers;
 
 use renderpage\libs\Controller;
-use app\models\{AccessLog, Navbar, Auth};
+use app\models\{
+    AccessLog,
+    Navbar,
+    Auth
+};
 
 class CommonController extends Controller {
+
     /**
      * Navbar (model) instance
      *
@@ -22,8 +28,7 @@ class CommonController extends Controller {
     /**
      * Before action.
      */
-    public function before()
-    {
+    public function before() {
         $this->navbar = new Navbar;
         $this->auth = new Auth;
 
@@ -37,12 +42,12 @@ class CommonController extends Controller {
         $this->view->addScript('navbar.js');
 
         $languages = [
-            [
+                [
                 'active' => $this->language->code == 'en-us',
                 'href' => 'http://renderpage.org' . $_SERVER['REQUEST_URI'],
                 'text' => 'English'
             ],
-            [
+                [
                 'active' => $this->language->code == 'ru-ru',
                 'href' => 'http://ru.renderpage.org' . $_SERVER['REQUEST_URI'],
                 'text' => 'Русский'
@@ -61,4 +66,5 @@ class CommonController extends Controller {
         $accessLog = new AccessLog;
         $accessLog->write();
     }
+
 }

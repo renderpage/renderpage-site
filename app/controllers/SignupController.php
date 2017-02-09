@@ -1,17 +1,17 @@
 <?php
+
 namespace app\controllers;
 
 use app\models\Auth;
 
-class SignupController extends CommonController
-{
+class SignupController extends CommonController {
+
     /**
      * Index.
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         if ((new Auth)->isAuthorized) {
             return $this->redirect('/');
         }
@@ -21,4 +21,5 @@ class SignupController extends CommonController
 
         return $this->view->render('signup');
     }
+
 }

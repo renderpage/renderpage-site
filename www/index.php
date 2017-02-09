@@ -1,4 +1,5 @@
 <?php
+
 define('RENDERPAGE_DEBUG', false);
 
 require '../libs/RenderPage.php';

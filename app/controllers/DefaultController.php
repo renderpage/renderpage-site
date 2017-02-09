@@ -1,15 +1,15 @@
 <?php
+
 namespace app\controllers;
 
-class DefaultController extends CommonController
-{
+class DefaultController extends CommonController {
+
     /**
      * Index.
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $this->navbar->activeItem = 'index';
 
         $this->view->setVar('title', $this->language->_('index', 'title'));
@@ -23,8 +23,7 @@ class DefaultController extends CommonController
      *
      * @return mixed
      */
-    public function actionContact()
-    {
+    public function actionContact() {
         $this->navbar->activeItem = 'contact';
 
         $this->view->setVar('title', $this->language->_('contact', 'title'));
@@ -38,8 +37,7 @@ class DefaultController extends CommonController
      *
      * @return mixed
      */
-    public function actionDownload()
-    {
+    public function actionDownload() {
         $this->navbar->activeItem = 'download';
 
         $this->view->setVar('title', $this->language->_('download', 'title'));
@@ -47,4 +45,5 @@ class DefaultController extends CommonController
 
         return $this->view->render('downloads');
     }
+
 }
