@@ -20,7 +20,6 @@ RenderPage.init = function (foo) {
     }
   }
 };
-
 RenderPage.init.prototype = {
   elements: [],
 
@@ -107,11 +106,6 @@ RenderPage.init.prototype = {
 
   on: function (event, handler) {
     for (var i = 0; i < this.elements.length; ++i) {
-      /*this.elements[i].addEventListener(event, function (e) {
-        if (handler(e) === false) {
-          e.preventDefault();
-        }
-      }, false);*/
       this.elements[i].addEventListener(event, handler, false);
     }
   },
@@ -157,7 +151,7 @@ RenderPage.getJSON = function (url, callback) {
     if (request.readyState === 4) { // Complete
       callback(JSON.parse(request.responseText));
     }
-  }
+  };
 
   request.open("GET", url, true);
   request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
@@ -181,10 +175,10 @@ RenderPage.post = function (url, data, callback, error = function () { }) {
         error(`${request.status} ${request.statusText}`);
       }
     }
-  }
+  };
 
   request.open("POST", url, true);
   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
   request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   request.send(data);
-}
+};
