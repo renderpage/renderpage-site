@@ -44,12 +44,12 @@ class CommonController extends Controller {
         $languages = [
                 [
                 'active' => $this->language->code == 'en-us',
-                'href' => 'http://renderpage.org' . $_SERVER['REQUEST_URI'],
+                'href' => '//renderpage.org' . $this->request->requestUri,
                 'text' => 'English'
             ],
                 [
                 'active' => $this->language->code == 'ru-ru',
-                'href' => 'http://ru.renderpage.org' . $_SERVER['REQUEST_URI'],
+                'href' => '//renderpage.ru' . $this->request->requestUri,
                 'text' => 'Русский'
             ],
         ];
