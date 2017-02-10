@@ -23,12 +23,12 @@
       <div class="languages">
         <ul>
           <li>Language (Язык):</li>
-          {foreach $languages as $item}
+            {foreach $languages as $item}
             <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
-          {/foreach}
+            {/foreach}
         </ul>
       </div>
-      <div class="copy">&copy; 2015&ndash;{$year} RenderPage.org</div>
+      <div class="copy">&copy; 2015&ndash;{$year} Sergey Pershin</div>
       <div class="powered">Powered by RenderPage {#VERSION}</div>
     </footer>
   </body>

@@ -41,18 +41,18 @@
         {foreach $navbar as $item}
           {if $item.isSeparator}
             <li class="divider{if $item.class} {$item.class}{/if}"><!-- - --></li>
-          {/if}
-          {if !$item.isSeparator}
+            {/if}
+            {if !$item.isSeparator}
             <li{if $item.class} class="{$item.class}"{/if}><a href="{$item.url}">{$item.text}</a></li>
-          {/if}
-        {/foreach}
+            {/if}
+          {/foreach}
       </ul>
     </nav>
     {if $breadcrumb}
       <ol class="breadcrumb">
         {foreach $breadcrumb as $item}
           <li><a href="{$item.url}">{$item.text}</a></li>
-        {/foreach}
+          {/foreach}
       </ol>
     {/if}
     <main class="workarea">
@@ -62,12 +62,12 @@
       <div class="languages">
         <ul>
           <li>Language (Язык):</li>
-          {foreach $languages as $item}
+            {foreach $languages as $item}
             <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
-          {/foreach}
+            {/foreach}
         </ul>
       </div>
-      <div class="copy">&copy; 2015&ndash;{$year} RenderPage.org</div>
+      <div class="copy">&copy; 2015&ndash;{$year} Sergey Pershin</div>
       <div class="powered">Powered by RenderPage&nbsp;{#VERSION}</div>
     </footer>
   </body>
