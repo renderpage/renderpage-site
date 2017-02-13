@@ -8,7 +8,7 @@
   color: #777;
   float: right;
   font-size: 18px;
-  font-style: italic;   
+  font-style: italic;
   line-height: 48px;
   margin-right: 16px;
   text-decoration: none;
@@ -69,6 +69,7 @@
     box-shadow: 0 2px 4px 0 rgba(50, 50, 50, 0.75);
     display: none;
     position: absolute;
+    padding-bottom: 8px;
     width: 100%;
   }
 
