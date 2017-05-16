@@ -1,8 +1,8 @@
 <form class="auth-form" action="/login" method="post">
   <h2 class="auth-form-heading">{"login.heading"}</h2>
   <fieldset>
-    <label for="inputEmail">{"login.label-email"}</label>
-    <input id="inputEmail" tabindex="1" name="email" type="email" maxlength="129" value="{$email}" placeholder="example@example.org">
+    <label for="input-email">{"login.label-email"}</label>
+    <input id="input-email" tabindex="1" name="email" type="email" maxlength="129" value="{$email}" placeholder="example@example.org">
     {if $errorMessages.email}
       <div class="error">
         <span class="exclamation-sign">!</span>
@@ -11,9 +11,9 @@
     {/if}
   </fieldset>
   <fieldset>
-    <label for="inputPassword">{"login.label-password"}</label>
+    <label for="input-password">{"login.label-password"}</label>
     <a class="reset-password" href="/reset-password">{"login.reset-password"}</a>
-    <input id="inputPassword" tabindex="2" name="password" type="password">
+    <input id="input-password" tabindex="2" name="password" type="password">
     {if $errorMessages.password}
       <div class="error">
         <span class="exclamation-sign">!</span>

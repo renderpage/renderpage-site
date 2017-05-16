@@ -2,8 +2,8 @@
   <h2 class="auth-form-heading">{"reset-password.heading"}</h2>
   <p>{"reset-password.p"}</p>
   <fieldset>
-    <label for="inputEmail">{"reset-password.label-email"}</label>
-    <input id="inputEmail" tabindex="1" name="email" type="email" maxlength="129" value="{$email}" placeholder="example@example.org">
+    <label for="input-email">{"reset-password.label-email"}</label>
+    <input id="input-email" tabindex="1" name="email" type="email" maxlength="129" value="{$email}" placeholder="example@example.org">
     {if $errorMessages.email}
       <div class="error">
         <span class="exclamation-sign">!</span>
