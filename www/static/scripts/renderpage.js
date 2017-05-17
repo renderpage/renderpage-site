@@ -178,7 +178,7 @@ RenderPage.post = function (url, data, callback, error = function () { }) {
   };
 
   request.open("POST", url, true);
-  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
   request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   request.send(data);
 };

@@ -4,5 +4,5 @@ return [
     'dsn' => 'mysql:host=localhost;dbname=mydb',
     'username' => 'mydb',
     'password' => '',
-    'charset' => 'utf8',
+    'charset' => 'UTF8',
 ];
