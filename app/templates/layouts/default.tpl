@@ -11,7 +11,7 @@
       <link href="//renderpage.org/static/style/{$cssFile.href}" rel="stylesheet">
     {/foreach}
     {foreach $jsFiles as $jsFile}
-      <script src="//renderpage.org/static/scripts/{$jsFile.src}"></script>
+      <script src="//renderpage.org/static/scripts/{$jsFile.src}" defer></script>
     {/foreach}
   </head>
   <body>
