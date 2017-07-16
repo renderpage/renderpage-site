@@ -38,10 +38,9 @@
       <ul>
         {foreach $navbar as $item}
           {if $item.isSeparator}
-            <li class="divider{if $item.class} {$item.class}{/if}"><!-- - --></li>
-            {/if}
-            {if !$item.isSeparator}
-            <li{if $item.class} class="{$item.class}"{/if}><a href="{$item.url}">{$item.text}</a></li>
+            <li class="divider{if $item.class} {$item.class}{/if}">
+            {else}
+            <li{if $item.class} class="{$item.class}"{/if}><a href="{$item.url}">{$item.text}</a>
             {/if}
           {/foreach}
       </ul>
@@ -59,9 +58,9 @@
     <footer class="footer">
       <div class="languages">
         <ul>
-          <li>Language (Язык):</li>
+          <li>Language (Язык):
             {foreach $languages as $item}
-            <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
+            <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a>
             {/foreach}
         </ul>
       </div>
