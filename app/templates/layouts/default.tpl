@@ -8,10 +8,10 @@
     <link rel="icon" href="/favicon.ico">
     <title>{$title}</title>
     {foreach $cssFiles as $cssFile}
-      <link href="http://renderpage.org/static/style/{$cssFile.href}" rel="stylesheet">
+      <link href="//renderpage.org/static/style/{$cssFile.href}" rel="stylesheet">
     {/foreach}
     {foreach $jsFiles as $jsFile}
-      <script src="http://renderpage.org/static/scripts/{$jsFile.src}"></script>
+      <script src="//renderpage.org/static/scripts/{$jsFile.src}"></script>
     {/foreach}
   </head>
   <body>
@@ -64,7 +64,7 @@
             {/foreach}
         </ul>
       </div>
-      <div class="copy">&copy; 2015&ndash;{$year} Sergey Pershin</div>
+      <div class="copy">&copy; 2015&ndash;{$year} Sergey&nbsp;Pershin</div>
       <div class="powered">Powered by RenderPage&nbsp;{#VERSION}</div>
     </footer>
   </body>
