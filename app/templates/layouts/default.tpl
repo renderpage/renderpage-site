@@ -16,7 +16,7 @@
   </head>
   <body>
     <header class="header">
-      <a class="logo" href="/"><img src="http://renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
+      <a class="logo" href="/"><img src="//renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
       <div class="auth-panel">
         {if $isAuthorized}
           <span>{$auth.email}</span>
