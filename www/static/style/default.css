@@ -96,7 +96,7 @@ main {
 }
 
 .footer > .languages li {
-  float: left;
+  display: inline-block;
   margin: 0 4px;
 }
 
@@ -118,10 +118,6 @@ main {
   .footer > .copy,
   .footer > .powered {
     line-height: 22px;
-  }
-
-  .footer > .languages ul {
-    display: inline-block;
   }
 }
 
