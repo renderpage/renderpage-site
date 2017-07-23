@@ -106,22 +106,22 @@ main.workarea {
   float: right;
 }
 
-.footer {
+body > footer {
   color: #767676;
   text-align: center;
   margin-bottom: 16px;
 }
 
-.footer a {
+body > footer a {
   color: #767676;
 }
 
-.footer a.active {
+body > footer a.active {
   color: #ccc;
   text-decoration: none;
 }
 
-.footer > .languages > ul {
+body > footer > .languages > ul {
   color: #767676;
   list-style: none;
   margin: 0;
@@ -129,17 +129,17 @@ main.workarea {
   overflow: hidden;
 }
 
-.footer > .languages li {
+body > footer > .languages li {
   display: inline-block;
   margin: 0 4px;
 }
 
-.footer > .languages li:first-child {
+body > footer > .languages li:first-child {
   margin: 0;
 }
 
-.footer > .languages li,
-.footer > .copy,
-.footer > .powered {
+body > footer > .languages li,
+body > footer > .copy,
+body > footer > .powered {
   line-height: 22px;
 }

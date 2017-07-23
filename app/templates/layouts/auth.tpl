@@ -17,17 +17,6 @@
     <main class="workarea">
       {workarea}
     </main>
-    <footer class="footer">
-      <div class="languages">
-        <ul>
-          <li>Language (Язык):</li>
-            {foreach $languages as $item}
-            <li><a{if $item.active} class="active"{/if} href="{$item.href}">{$item.text}</a></li>
-            {/foreach}
-        </ul>
-      </div>
-      <div class="copy">&copy; 2015&ndash;{$year} Sergey Pershin</div>
-      <div class="powered">Powered by RenderPage {#VERSION}</div>
-    </footer>
+    {include footer.tpl}
   </body>
 </html>

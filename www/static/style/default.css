@@ -72,22 +72,22 @@ main {
   padding: 16px;
 }
 
-.footer {
+body > footer {
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
   color: #767676;
 }
 
-.footer a {
+body > footer a {
   color: #767676;
 }
 
-.footer a.active {
+body > footer a.active {
   color: #ccc;
   text-decoration: none;
 }
 
-.footer > .languages > ul {
+body > footer > .languages > ul {
   color: #767676;
   list-style: none;
   margin: 0;
@@ -95,12 +95,12 @@ main {
   overflow: hidden;
 }
 
-.footer > .languages li {
+body > footer > .languages li {
   display: inline-block;
   margin: 0 4px;
 }
 
-.footer > .languages li:first-child {
+body > footer > .languages li:first-child {
   margin: 0;
 }
 
@@ -109,37 +109,37 @@ main {
     display: none;
   }
 
-  .footer {
+  body > footer {
     padding: 16px;
     text-align: center;
   }
 
-  .footer > .languages li,
-  .footer > .copy,
-  .footer > .powered {
+  body > footer > .languages li,
+  body > footer > .copy,
+  body > footer > .powered {
     line-height: 22px;
   }
 }
 
 @media screen and (min-width: 512px) {
-  .footer {
+  body > footer {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
 
-  .footer > .languages,
-  .footer > .copy,
-  .footer > .powered {
+  body > footer > .languages,
+  body > footer > .copy,
+  body > footer > .powered {
     padding: 22px;
   }
 
-  .footer > .copy {
+  body > footer > .copy {
     text-align: center;
   }
 
-  .footer > .powered {
+  body > footer > .powered {
     text-align: right;
   }
 }
