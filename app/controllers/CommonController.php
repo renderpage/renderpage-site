@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use renderpage\libs\Controller;
 use app\models\{
-    AccessLog,
     Navbar,
     Auth
 };
@@ -62,9 +61,6 @@ class CommonController extends Controller {
         $this->view->setVar('lang', $this->language->code);
         $this->view->setVar('languages', $languages);
         $this->view->setVar('year', date('Y'));
-
-        $accessLog = new AccessLog;
-        $accessLog->write();
     }
 
 }
