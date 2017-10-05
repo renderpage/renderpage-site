@@ -8,15 +8,15 @@
     <link rel="icon" href="/favicon.ico">
     <title>{$title}</title>
     {foreach $cssFiles as $cssFile}
-      <link href="//renderpage.org/static/style/{$cssFile.href}" rel="stylesheet">
+      <link href="/static/style/{$cssFile.href}" rel="stylesheet">
     {/foreach}
     {foreach $jsFiles as $jsFile}
-      <script src="//renderpage.org/static/scripts/{$jsFile.src}" defer></script>
+      <script src="/static/scripts/{$jsFile.src}" defer></script>
     {/foreach}
   </head>
   <body>
     <header class="header">
-      <a class="logo" href="/"><img src="//renderpage.org/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
+      <a class="logo" href="/"><img src="/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
       <div class="auth-panel">
         {if $isAuthorized}
           <span>{$auth.email}</span>
