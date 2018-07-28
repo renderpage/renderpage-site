@@ -18,13 +18,13 @@ class ResetPasswordController extends CommonController {
             foreach ($result['errors'] as $error) {
                 $errorMessages[$error['inputName']] = $error['message'];
             }
-            $this->view->setVar('errorMessages', $errorMessages);
-            $this->view->setVar('email', filter_input(INPUT_POST, 'email'));
+            $this->view->assign('errorMessages', $errorMessages);
+            $this->view->assign('email', filter_input(INPUT_POST, 'email'));
         }
 
-        $this->view->setVar('title', $this->language->_('reset-password', 'title'));
+        $this->view->title = $this->language->_('reset-password', 'title');
 
-        return $this->view->render('reset-password', 'auth');
+        return $this->view->render('reset-password', 'minimal');
     }
 
 }

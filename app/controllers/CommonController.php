@@ -2,7 +2,10 @@
 
 namespace app\controllers;
 
-use renderpage\libs\Controller;
+use renderpage\libs\{
+    Controller,
+    View
+};
 use app\models\{
     Navbar,
     Auth
@@ -31,36 +34,27 @@ class CommonController extends Controller {
         $this->navbar = new Navbar;
         $this->auth = new Auth;
 
-        // Styles
-        $this->view->addCss('renderpage.css');
-        $this->view->addCss('default.css');
-        $this->view->addCss('navbar.css');
-
-        // Scripts
-        $this->view->addScript('renderpage.js');
-        $this->view->addScript('navbar.js');
-
+        $hostWithoutGTLD = substr($this->request->host, 0, strrpos($this->request->host, '.'));
         $languages = [
-                [
+            [
                 'active' => $this->language->code == 'en-us',
-                'href' => '//renderpage.org' . $this->request->requestUri,
+                'href' => '//' . $hostWithoutGTLD . '.org' . $this->request->requestUri,
                 'text' => 'English'
             ],
-                [
+            [
                 'active' => $this->language->code == 'ru-ru',
-                'href' => '//renderpage.ru' . $this->request->requestUri,
+                'href' => '//' . $hostWithoutGTLD . '.ru' . $this->request->requestUri,
                 'text' => 'Русский'
             ],
         ];
 
-        $this->view->setVar('isAuthorized', $this->auth->isAuthorized);
+        $this->view->assign('isAuthorized', $this->auth->isAuthorized, View::SCOPE_LAYOUT);
         if ($this->auth->isAuthorized) {
-            $this->view->setVar('auth', ['id' => $this->auth->id, 'email' => $this->auth->email]);
+            $this->view->assign('auth', ['id' => $this->auth->id, 'email' => $this->auth->email], View::SCOPE_LAYOUT);
         }
 
-        $this->view->setVar('lang', $this->language->code);
-        $this->view->setVar('languages', $languages);
-        $this->view->setVar('year', date('Y'));
+        $this->view->assign('lang', $this->language->code, View::SCOPE_LAYOUT);
+        $this->view->assign('languages', $languages, View::SCOPE_LAYOUT);
     }
 
 }

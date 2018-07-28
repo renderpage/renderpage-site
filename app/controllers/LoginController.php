@@ -23,13 +23,13 @@ class LoginController extends CommonController {
             foreach ($results['errors'] as $error) {
                 $errorMessages[$error['inputName']] = $error['message'];
             }
-            $this->view->setVar('errorMessages', $errorMessages);
-            $this->view->setVar('email', filter_input(INPUT_POST, 'email'));
+            $this->view->assign('errorMessages', $errorMessages);
+            $this->view->assign('email', filter_input(INPUT_POST, 'email'));
         }
 
-        $this->view->setVar('title', $this->language->_('login', 'title'));
+        $this->view->title = $this->language->_('login', 'title');
 
-        return $this->view->render('login', 'auth');
+        return $this->view->render('login', 'minimal');
     }
 
 }

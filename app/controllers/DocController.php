@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use renderpage\libs\View;
+
 class DocController extends CommonController {
 
     /**
@@ -13,19 +15,15 @@ class DocController extends CommonController {
         $this->navbar->activeItem = 'doc';
 
         $breadcrumb = [
-            'items' => [
-                    ['url' => '/', 'text' => $this->language->_('navbar', 'index')],
-                    ['url' => '/doc', 'text' => $this->language->_('navbar', 'doc')]
-            ]
+            ['url' => '/', 'text' => $this->language->_('navbar', 'index')],
+            ['url' => '/doc', 'text' => $this->language->_('navbar', 'doc')]
         ];
 
-        $this->view->addCss('doc.css');
+        $this->view->title = $this->language->_('doc', 'title');
+        $this->view->assign('navbar', $this->navbar->items, View::SCOPE_LAYOUT);
+        $this->view->assign('breadcrumb', $breadcrumb, View::SCOPE_LAYOUT);
 
-        $this->view->setVar('title', $this->language->_('doc', 'title'));
-        $this->view->setVar('navbar', $this->navbar->items);
-        $this->view->setVar('breadcrumb', $breadcrumb);
-
-        return $this->view->render('doc/index');
+        return $this->view->render('doc' . DIRECTORY_SEPARATOR . 'index');
     }
 
 }
