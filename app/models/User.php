@@ -28,23 +28,27 @@ class User extends Model {
      *
      * @var string
      */
-    protected $password = '';
+    private $password = '';
+
+    /**
+     * Users.
+     *
+     * @var \app\models\User[]
+     */
+    private static $users = [];
 
     /**
      * Gets the user by email
      *
      * @param string $email The user's email.
      *
-     * @return \app\models\User|false
+     * @return \app\models\User|boolean
      */
     public static function getByEmail(string $email) {
-        $user = false;
-        $row = DB::getInstance()->getRow('SELECT * FROM `' . DB::$tablePrefix . 'users` WHERE `email` = ?', [$email]);
-        if ($row) {
-            $user = new self;
-            $user->id = (int) $row['id'];
-            $user->email = $row['email'];
-            $user->password = $row['password'];
+        $sth = DB::getInstance()->query('SELECT * FROM `' . DB::$tablePrefix . 'users` WHERE `email` = ?', [$email]);
+        $user = $sth->fetchObject(__CLASS__);
+        if ($user) {
+            self::$users[$user->id] = $user;
         }
         return $user;
     }
@@ -54,18 +58,15 @@ class User extends Model {
      *
      * @param int $id The user's ID.
      *
-     * @return \app\models\User|false
+     * @return \app\models\User|boolean
      */
     public static function getById(int $id) {
-        $user = false;
-        $row = DB::getInstance()->getRow('SELECT * FROM `' . DB::$tablePrefix . 'users` WHERE `id` = ?', [$id]);
-        if ($row) {
-            $user = new self;
-            $user->id = (int) $row['id'];
-            $user->email = $row['email'];
-            $user->password = $row['password'];
+        if (!isset(self::$users[$id])) {
+            $sth = DB::getInstance()->query('SELECT * FROM `' . DB::$tablePrefix . 'users` WHERE `id` = ?', [$id]);
+            $user = $sth->fetchObject(__CLASS__);
+            self::$users[$id] = $user;
         }
-        return $user;
+        return self::$users[$id];
     }
 
     /**
