@@ -38,12 +38,12 @@ class CommonController extends Controller {
         $languages = [
             [
                 'active' => $this->language->code == 'en-us',
-                'href' => '//' . $hostWithoutGTLD . '.org' . $this->request->requestUri,
+                'href' => '//' . $hostWithoutGTLD . '.org' . $this->request->uri,
                 'text' => 'English'
             ],
             [
                 'active' => $this->language->code == 'ru-ru',
-                'href' => '//' . $hostWithoutGTLD . '.ru' . $this->request->requestUri,
+                'href' => '//' . $hostWithoutGTLD . '.ru' . $this->request->uri,
                 'text' => 'Русский'
             ],
         ];
