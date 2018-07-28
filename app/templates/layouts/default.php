@@ -54,7 +54,7 @@ THE SOFTWARE.
       <a class="logo" href="/"><img src="/static/vector/renderpage-logo.svg" alt="RenderPage"></a>
       <div class="auth-panel">
         <?php if ($isAuthorized): ?>
-            <span><?= $auth['email'] ?></span>
+            <span><?= $auth->user->email ?></span>
             <a class="btn" href="/logout"><?= $this->_('auth-panel', 'logout') ?></a>
         <?php else: ?>
             <a class="btn" href="/signup"><?= $this->_('auth-panel', 'signup') ?></a>

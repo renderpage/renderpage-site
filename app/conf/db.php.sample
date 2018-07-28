@@ -5,4 +5,5 @@ return [
     'username' => 'renderpage',
     'password' => '',
     'charset' => 'utf8mb4',
+    'tablePrefix' => ''
 ];

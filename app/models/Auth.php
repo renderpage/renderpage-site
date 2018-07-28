@@ -2,11 +2,13 @@
 
 namespace app\models;
 
+use renderpage\libs\Model;
 use renderpage\libs\Session;
 use app\models\User;
 
-class Auth extends User {
+class Auth extends Model {
 
+    public $user;
     private static $_isAuthorized = null;
 
     /**
@@ -58,10 +60,10 @@ class Auth extends User {
 
         $userId = $session->get('userId');
         if ($userId > 0) {
-            $this->getById($userId);
+            $this->user = User::getById($userId);
         }
 
-        if ($this->id > 0) {
+        if ($this->user) {
             self::$_isAuthorized = true;
             return true;
         }
@@ -80,7 +82,7 @@ class Auth extends User {
         if (!$email = $this->filterInputValidateEmail()) {
             return $this->response;
         }
-        $user = $this->getByEmail($email);
+        $user = User::getByEmail($email);
         if (!$user) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
@@ -95,7 +97,7 @@ class Auth extends User {
             ];
             return $this->response;
         }
-        if (md5($password) === $user->password) {
+        if ($user->passwordVerify($password)) {
             Session::getInstance()->set('userId', $user->id);
             $this->response['success'] = true;
         } else {

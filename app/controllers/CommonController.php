@@ -50,7 +50,7 @@ class CommonController extends Controller {
 
         $this->view->assign('isAuthorized', $this->auth->isAuthorized, View::SCOPE_LAYOUT);
         if ($this->auth->isAuthorized) {
-            $this->view->assign('auth', ['id' => $this->auth->id, 'email' => $this->auth->email], View::SCOPE_LAYOUT);
+            $this->view->assign('auth', $this->auth, View::SCOPE_LAYOUT);
         }
 
         $this->view->assign('lang', $this->language->code, View::SCOPE_LAYOUT);
