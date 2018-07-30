@@ -73,13 +73,17 @@ THE SOFTWARE.
         <?php
         foreach ($navbar as $item) {
             if (isset($item['isSeparator']) && $item['isSeparator']) {
-                echo '<li class="divider{if $item.class} {$item.class}{/if}">';
+                echo '<li class="divider';
+                if (!empty($item['class'])) {
+                    echo ' ', $item['class'];
+                }
+                echo '">';
             } else {
                 echo '<li';
                 if (!empty($item['class'])) {
                     echo ' class="', $item['class'], '"';
                 }
-                echo '><a href="' . $item['url'] . '">' . $item['text'] . '</a>';
+                echo '><a href="', $item['url'], '">', $item['text'], '</a>';
             }
         }
         ?>
@@ -89,7 +93,7 @@ THE SOFTWARE.
         <ol class="breadcrumb">
           <?php
           foreach ($breadcrumb as $item) {
-              echo '<li><a href="' . $item['url'] . '">' . $item['text'] . '</a>';
+              echo '<li><a href="', $item['url'], '">', $item['text'], '</a>';
           }
           ?>
         </ol>
