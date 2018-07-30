@@ -117,7 +117,7 @@ class Auth extends Model {
     public function logout() {
         // Create instance of Session class
         $session = Session::getInstance();
-        $session->del('userId');
+        $session->remove('userId');
         self::$_isAuthorized = false;
         return true;
     }
