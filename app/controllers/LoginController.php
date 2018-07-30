@@ -27,7 +27,7 @@ class LoginController extends CommonController {
             $this->view->assign('email', filter_input(INPUT_POST, 'email'));
         }
 
-        $this->view->title = $this->language->_('login', 'title');
+        $this->view->title = $this->language->getText('login', 'title');
 
         return $this->view->render('login', 'minimal');
     }

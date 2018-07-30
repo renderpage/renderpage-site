@@ -29,7 +29,7 @@ class Auth extends Model {
         if (!$email = filter_input(INPUT_POST, 'email')) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('login', 'error-email-empty')
+                'message' => $this->language->getText('login', 'error-email-empty')
             ];
             $this->response;
             return false;
@@ -37,7 +37,7 @@ class Auth extends Model {
         if (!$email = filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('login', 'error-email-invalid')
+                'message' => $this->language->getText('login', 'error-email-invalid')
             ];
             $this->response;
             return false;
@@ -86,14 +86,14 @@ class Auth extends Model {
         if (!$user) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('login', 'error-user-not-found')
+                'message' => $this->language->getText('login', 'error-user-not-found')
             ];
             return $this->response;
         }
         if (!$password = filter_input(INPUT_POST, 'password')) {
             $this->response['errors'][] = [
                 'inputName' => 'password',
-                'message' => $this->_('login', 'error-password-empty')
+                'message' => $this->language->getText('login', 'error-password-empty')
             ];
             return $this->response;
         }
@@ -103,7 +103,7 @@ class Auth extends Model {
         } else {
             $this->response['errors'][] = [
                 'inputName' => 'password',
-                'message' => $this->_('login', 'error-password-incorrect')
+                'message' => $this->language->getText('login', 'error-password-incorrect')
             ];
         }
         return $this->response;

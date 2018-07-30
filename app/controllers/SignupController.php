@@ -16,7 +16,7 @@ class SignupController extends CommonController {
             return $this->redirect('/');
         }
 
-        $this->view->title=$this->language->_('signup', 'title');
+        $this->view->title = $this->language->getText('signup', 'title');
         $this->view->assign('navbar', $this->navbar->items, View::SCOPE_LAYOUT);
 
         return $this->view->render('signup');
