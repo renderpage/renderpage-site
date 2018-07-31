@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-use app\models\User;
+use \renderpage\libs\Model;
 
-class ResetPassword extends User {
+class ResetPassword extends Model {
 
     /**
      * Response
@@ -24,7 +24,7 @@ class ResetPassword extends User {
         if (!$email = filter_input(INPUT_POST, 'email')) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('reset-password', 'error-email-empty')
+                'message' => $this->language->getText('reset-password', 'error-email-empty')
             ];
             $this->response;
             return false;
@@ -32,7 +32,7 @@ class ResetPassword extends User {
         if (!$email = filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('reset-password', 'error-email-invalid')
+                'message' => $this->language->getText('reset-password', 'error-email-invalid')
             ];
             $this->response;
             return false;
@@ -49,11 +49,11 @@ class ResetPassword extends User {
         if (!$email = $this->filterInputValidateEmail()) {
             return $this->response;
         }
-        $user = $this->getByEmail($email);
+        $user = User::getByEmail($email);
         if (!$user) {
             $this->response['errors'][] = [
                 'inputName' => 'email',
-                'message' => $this->_('reset-password', 'error-email-not-found')
+                'message' => $this->language->getText('reset-password', 'error-email-not-found')
             ];
             return $this->response;
         }
