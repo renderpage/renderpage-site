@@ -11,13 +11,13 @@ class LoginController extends CommonController {
      */
     public function actionIndex() {
         if ($this->auth->isAuthorized) {
-            return $this->redirect('/');
+            $this->response->redirect('/');
         }
 
         if ($this->request->isPost) {
             $results = $this->auth->login();
             if ($results['success']) {
-                $this->redirect('/');
+                $this->response->redirect('/');
             }
             $errorMessages = [];
             foreach ($results['errors'] as $error) {

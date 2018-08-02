@@ -11,4 +11,4 @@ if ('ru' === $app->request->gTLD) {
     $app->language->setCurrentLanguage('ru-ru');
 }
 
-$app->route()->execute()->output();
+$app->route()->execute()->send();

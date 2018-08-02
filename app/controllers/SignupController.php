@@ -13,7 +13,7 @@ class SignupController extends CommonController {
      */
     public function actionIndex() {
         if ($this->auth->isAuthorized) {
-            return $this->redirect('/');
+            $this->response->redirect('/');
         }
 
         $this->view->title = $this->language->getText('signup', 'title');

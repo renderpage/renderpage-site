@@ -11,7 +11,8 @@ class LogoutController extends CommonController {
      */
     public function actionIndex() {
         $this->auth->logout();
-        return $this->redirect('/login');
+        $this->response->redirect('/login');
+        return '';
     }
 
 }
