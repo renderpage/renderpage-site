@@ -1,5 +1,5 @@
 <?php
-$this->addStyle('/static/style/auth.css');
+$this->addStyle('/static/styles/auth.css');
 ?>
 <form class="auth-form" action="/login" method="post">
   <h2 class="auth-form-heading"><?= $this->_('login', 'heading') ?></h2>

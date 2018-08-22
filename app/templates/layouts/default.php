@@ -1,8 +1,8 @@
 <?php
 // Styles
-$this->addStyle('/static/style/renderpage.css');
-$this->addStyle('/static/style/default.css');
-$this->addStyle('/static/style/navbar.css');
+$this->addStyle('/static/styles/renderpage.css');
+$this->addStyle('/static/styles/default.css');
+$this->addStyle('/static/styles/navbar.css');
 
 // Scripts
 $this->addScript('/static/scripts/renderpage.js');

@@ -1,5 +1,5 @@
 <?php
-$this->addStyle('/static/style/renderpage.css');
+$this->addStyle('/static/styles/renderpage.css');
 ?>
 <!DOCTYPE html>
 <!--
