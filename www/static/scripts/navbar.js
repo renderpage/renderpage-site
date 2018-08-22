@@ -1,20 +1,47 @@
-/* global RenderPage */
+/*
+ * The MIT License
+ *
+ * Copyright 2018 Sergey Pershin <sergey dot pershin at hotmail dot com>.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
-(function ($) {
-  $.ready(function () {
-    $(".navbar button").click(function (e) {
-      if ($(".navbar button").hasClass("active")) {
-        $(".navbar button").removeClass("active");
-        $(".navbar ul").removeClass("mobile-block");
-      } else {
-        $(".navbar button").addClass("active");
-        $(".navbar ul").addClass("mobile-block");
-        e.stopPropagation();
-      }
-    });
-    $(document).click(function () {
-      $(".navbar button").removeClass("active");
-      $(".navbar ul").removeClass("mobile-block");
-    });
+(function (d) {
+  var buttonElement, ulElement;
+  buttonElement = d.querySelector(".navbar > button");
+  ulElement = d.querySelector(".navbar > ul");
+
+  buttonElement.addEventListener("click", (event) => {
+    if (buttonElement.classList.contains("active")) {
+      buttonElement.classList.remove("active");
+      ulElement.classList.remove("mobile-block");
+    } else {
+      buttonElement.classList.add("active");
+      ulElement.classList.add("mobile-block");
+      event.stopPropagation();
+    }
   });
-})(RenderPage);
+
+  d.querySelector("body").addEventListener("click", () => {
+    if (buttonElement.classList.contains("active")) {
+      buttonElement.classList.remove("active");
+      ulElement.classList.remove("mobile-block");
+    }
+  });
+})(document);

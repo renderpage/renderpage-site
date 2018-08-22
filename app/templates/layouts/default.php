@@ -5,7 +5,6 @@ $this->addStyle('/static/styles/default.css');
 $this->addStyle('/static/styles/navbar.css');
 
 // Scripts
-$this->addScript('/static/scripts/renderpage.js');
 $this->addScript('/static/scripts/navbar.js');
 ?>
 <!DOCTYPE html>
