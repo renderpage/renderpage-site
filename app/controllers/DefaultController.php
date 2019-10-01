@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use renderpage\libs\View;
+use vendor\pershin\renderpage\View;
 
 class DefaultController extends CommonController {
 

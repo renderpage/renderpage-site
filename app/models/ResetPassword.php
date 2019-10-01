@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use \renderpage\libs\Model;
+use vendor\pershin\renderpage\Model;
 
 class ResetPassword extends Model {
 

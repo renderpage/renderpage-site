@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use renderpage\libs\{
+use vendor\pershin\renderpage\{
     DB,
     Model
 };

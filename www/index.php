@@ -2,9 +2,9 @@
 
 define('RENDERPAGE_DEBUG', true);
 
-require __DIR__ . '/../libs/require.php';
+require __DIR__ . '/../vendor/pershin/renderpage/require.php';
 
-$app = new \renderpage\libs\RenderPage;
+$app = new vendor\pershin\renderpage\RenderPage;
 
 // renderpage.ru
 if ('ru' === $app->request->gTLD) {

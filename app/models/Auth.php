@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use renderpage\libs\Model;
-use renderpage\libs\Session;
+use vendor\pershin\renderpage\Model;
+use vendor\pershin\renderpage\Session;
 use app\models\User;
 
 class Auth extends Model {
