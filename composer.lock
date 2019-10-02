@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9370c5f4a532ba54275764825ec598d7",
+    "packages": [
+        {
+            "name": "pershin/renderpage",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pershin/renderpage-framework.git",
+                "reference": "89126783686c0b0056d9651b3737eb3250b4d389"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pershin/renderpage-framework/zipball/89126783686c0b0056d9651b3737eb3250b4d389",
+                "reference": "89126783686c0b0056d9651b3737eb3250b4d389",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "require.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Pershin",
+                    "email": "sergey.pershin@hotmail.com"
+                }
+            ],
+            "description": "RenderPage",
+            "time": "2019-10-01T21:48:13+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "pershin/renderpage": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

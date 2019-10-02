@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use renderpage\libs\{
+use vendor\pershin\renderpage\{
     Controller,
     View
 };

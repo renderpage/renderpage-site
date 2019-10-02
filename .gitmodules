@@ -1,3 +1,3 @@
 [submodule "libs"]
-	path = libs
-	url = https://github.com/renderpage/renderpage-framework.git
+	path = vendor/pershin/renderpage
+	url = https://github.com/pershin/renderpage-framework.git
